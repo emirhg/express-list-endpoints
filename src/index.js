@@ -1,6 +1,6 @@
 // var debug = require('debug')('express-list-endpoints')
-var regexpExpressRegexp = /^\/\^\\\/(?:(:?[\w\\.-]*(?:\\\/:?[\w\\.-]*)*)|(\(\?:\(\[\^\\\/]\+\?\)\)))\\\/.*/
-var regexpExpressParam = /\(\?:\(\[\^\\\/]\+\?\)\)/g
+var regexpExpressRegexp = /^\/\^\\\/(?:(:?[\w\\.-]*(?:\\\/:?[\w\\.-]*)*)|(?:\(\?:\(\[[^\\]+\]\+\??\)\)))\\\/.*/
+var regexpExpressParam = /(?:\(\?:\(\[[^\\]+\]\+\??\)\))/g
 
 /**
  * Returns all the verbs detected for the passed route
@@ -46,7 +46,7 @@ var parseExpressPath = function (expressPathRegexp, params) {
 
     parsedRegexp = parsedRegexp
       .toString()
-      .replace(/\(\?:\(\[\^\\\/]\+\?\)\)/, paramId)
+      .replace(/(?:\(\?:\(\[[^\\]+\]\+\??\)\))/, paramId)
 
     paramIdx++
   }
