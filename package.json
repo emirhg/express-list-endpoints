@@ -1,5 +1,5 @@
 {
-  "name": "express-list-endpoints",
+  "name": "@emirhg/express-list-endpoints",
   "version": "4.0.1",
   "description": "A express package to list all registered endoints and its verbs",
   "main": "src/index.js",
